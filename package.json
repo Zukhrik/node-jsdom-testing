@@ -4,7 +4,8 @@
   "description": "Testing with JSDOM",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "browserify main.js -o bundle.js"
   },
   "keywords": [],
   "author": "zukhrik",
