@@ -1,0 +1,19 @@
+{
+  "name": "node-jsdom",
+  "version": "1.0.0",
+  "description": "Testing with JSDOM",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "zukhrik",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.5.0",
+    "jsdom": "^22.1.0"
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.5.0"
+  }
+}
