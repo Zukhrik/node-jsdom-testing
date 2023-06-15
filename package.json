@@ -15,6 +15,7 @@
     "jsdom": "^22.1.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^9.3.1",
     "jest-environment-jsdom": "^29.5.0"
   }
 }
