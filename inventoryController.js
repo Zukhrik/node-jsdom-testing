@@ -5,6 +5,6 @@ const addItem = (itemName, quantity) => {
   data.inventory[itemName] = currentQuantity + quantity;
 };
 
-addItem('cheesecake', 5)
+// addItem('cheesecake', 0)
 
 module.exports = {data, addItem};

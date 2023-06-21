@@ -12,4 +12,6 @@ module.exports = {
   testEnvironment: "jsdom",
 
   verbose: true,
+  
+  setupFilesAfterEnv: ['<rootDir>/setupJestDom.js']
 };
