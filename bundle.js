@@ -33,7 +33,22 @@ const handleAddItem = (event) => {
   updateItemList(data.inventory)
 }
 
-module.exports = {updateItemList, handleAddItem}
+const validItems = ["cheesecake", 'apple pie', "carrot cake"]
+const handleItemName = event => {
+  const itemName = event.target.value
+  
+  const errorMessage = window.document.getElementById('error-msg')
+  
+  if(!itemName || itemName === ""){
+    errorMessage.innerHTML = ""
+  }else if(!validItems.includes(itemName)){
+    errorMessage.innerHTML = `${itemName} is not a valid item`
+  }else {
+    errorMessage.innerHTML = `${itemName} is valid`
+  }
+}
+
+module.exports = {updateItemList, handleAddItem, handleItemName}
 },{"./inventoryController":2}],2:[function(require,module,exports){
 const data = {inventory: {}};
 
@@ -47,14 +62,17 @@ const addItem = (itemName, quantity) => {
 module.exports = {data, addItem};
 },{}],3:[function(require,module,exports){
 const {addItem, data} = require('./inventoryController')
-const {updateItemList, handleAddItem} = require('./domController')
+const {updateItemList, handleAddItem, handleItemName} = require('./domController')
 
 const form = document.getElementById('add-item-form')
 form.addEventListener('submit', handleAddItem)
 
-// addItem('cheesecake', 0)
-// addItem('apple pie', 0)
-// addItem('carrot cake', 0)
+const itemInput = document.querySelector(`input[name='name']`)
+itemInput.addEventListener("input", handleItemName)
+
+addItem('cheesecake', 0)
+addItem('apple pie', 0)
+addItem('carrot cake', 0)
 
 updateItemList(data.inventory)
 },{"./domController":1,"./inventoryController":2}]},{},[3]);

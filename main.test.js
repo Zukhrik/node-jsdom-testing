@@ -4,7 +4,7 @@ const fs = require("fs");
 const initialHTML = fs.readFileSync("./index.html");
 
 beforeEach(() => {
-  document.body.innerHTML = initialHTML
+  document.body.innerHTML = initialHTML;
   
   jest.resetModules();
   require("./main.js");
@@ -22,5 +22,17 @@ describe("main.js", () => {
     
     const itemList = document.getElementById("item-list");
     expect(getByText(itemList, "cheesecake - Quantity: 6")).toBeInTheDocument();
+  });
+});
+
+describe("itemNameValidation", () => {
+  test("entering valid item names", () => {
+    const itemField = screen.getByPlaceholderText("Item name");
+    itemField.value = "cheesecake";
+    const inputEvent = new Event("input");
+    
+    itemField.dispatchEvent(inputEvent);
+    
+    expect(screen.getByText("cheesecake is valid!")).toBeInTheDocument();
   });
 });

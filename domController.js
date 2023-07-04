@@ -32,4 +32,19 @@ const handleAddItem = (event) => {
   updateItemList(data.inventory)
 }
 
-module.exports = {updateItemList, handleAddItem}
+const validItems = ["cheesecake", 'apple pie', "carrot cake"]
+const handleItemName = event => {
+  const itemName = event.target.value
+  
+  const errorMessage = window.document.getElementById('error-msg')
+  
+  if(!itemName || itemName === ""){
+    errorMessage.innerHTML = ""
+  }else if(!validItems.includes(itemName)){
+    errorMessage.innerHTML = `${itemName} is not a valid item`
+  }else {
+    errorMessage.innerHTML = `${itemName} is valid!`
+  }
+}
+
+module.exports = {updateItemList, handleAddItem, handleItemName}
